@@ -12,8 +12,9 @@ import java.util.Map;
 
 import static org.springframework.http.HttpStatus.OK;
 
-@RestController
 
+// this is just controller
+@RestController
 public class SalaryController {
 
     private SalaryService salaryService;
@@ -23,8 +24,11 @@ public class SalaryController {
         this.salaryService = salaryService;
     }
 
+	//this is a findHighestPaidEmployeeForAllCurrencies
     @GetMapping(path = "/employees")
     public ResponseEntity<Map<CurrencyEnum, Employee>> findHighestPaidEmployeeForAllCurrencies() {
+		
+		//creates a responseentity and add highest paid employees
         return ResponseEntity.status(OK).body(salaryService.findHighestPaidEmployeeForAllCurrencies());
     }
 }
